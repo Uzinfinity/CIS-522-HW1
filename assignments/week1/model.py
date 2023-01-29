@@ -66,17 +66,17 @@ class GradientDescentLinearRegression(LinearRegression):
             None
 
         """
-        X = X.astype(np.float32)  # convert data type to float32
-        y = y.astype(np.float32)
-        X = (X - X.mean()) / X.std()  # rescale input data
+        # X = X.astype(np.float32)  # convert data type to float32
+        # y = y.astype(np.float32)
+        # X = (X - X.mean()) / X.std()
         n_samples, n_features = X.shape
         self.w = np.random.randn(n_features)
-        self.b = np.random.randn()
+        self.b = np.random.random()
         for _ in range(epochs):
             y_pred = X @ self.w + self.b
             residuals = y_pred - y
-            gradient_weights = (2 / n_samples) * X.T @ residuals
-            gradient_bias = (2 / n_samples) * residuals.sum()
+            gradient_weights = (2 / n_samples) * (X.T @ residuals)
+            gradient_bias = (2 / n_samples) * np.sum(residuals)
             self.w -= lr * gradient_weights
             self.b -= lr * gradient_bias
 
