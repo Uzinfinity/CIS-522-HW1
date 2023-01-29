@@ -48,7 +48,7 @@ def main():
 
     # Create a linear regression model:
     lr = LinearRegression()
-    lrgd = GradientDescentLinearRegression()
+    # lrgd = GradientDescentLinearRegression()
 
     # Fit the model to the training data:
     lr.fit(X_train, y_train)
