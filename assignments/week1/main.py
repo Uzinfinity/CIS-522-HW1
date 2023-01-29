@@ -1,10 +1,13 @@
 # Import your model:
 from model import LinearRegression
+from model import GradientDescentLinearRegression
 from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import numpy as np
 from typing import Tuple
+
+
 
 
 def get_housing_data() -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
@@ -47,15 +50,26 @@ def main():
 
     # Create a linear regression model:
     lr = LinearRegression()
+    lrgd = GradientDescentLinearRegression()
+
 
     # Fit the model to the training data:
     lr.fit(X_train, y_train)
+    lrgd.fit(X_train, y_train)
+
 
     # Make predictions on the test data:
     y_pred = lr.predict(X_test)
+    # ygd_pred = lrgd.predict(X_test)
+    # print(ygd_pred)
+
 
     # Compute the mean squared error:
     mse = mean_squared_error(y_test, y_pred)
+    # mse_gd = mean_squared_error(y_test, ygd_pred)
 
     # Print the mean squared error:
     print("Mean squared error: {:.2f}".format(mse))
+    # print("Mean squared error for gd: {:.2f}".format(mse_gd))
+
+main()
