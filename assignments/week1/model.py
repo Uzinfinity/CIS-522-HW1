@@ -5,6 +5,7 @@ class LinearRegression:
     """
     A vanilla linear regression model.
     """
+
     w: np.ndarray
     b: float
 
@@ -12,7 +13,7 @@ class LinearRegression:
         self.w = None
         self.b = None
 
-    def fit(self, X:np.ndarray, y:np.ndarray) -> None:
+    def fit(self, X: np.ndarray, y: np.ndarray) -> None:
         """
         Fit the model for the given input.
 
@@ -29,17 +30,17 @@ class LinearRegression:
         self.b = self.w[0]
         self.w = self.w[1:]
 
-    def predict(self, X:np.ndarray)-> np.ndarray:
+    def predict(self, X: np.ndarray) -> np.ndarray:
         """
-         Predict the output for the given input.
+        Predict the output for the given input.
 
-         Arguments:
-             X (np.ndarray): The input data.
+        Arguments:
+            X (np.ndarray): The input data.
 
-         Returns:
-             np.ndarray: The predicted output.
+        Returns:
+            np.ndarray: The predicted output.
 
-         """
+        """
         X = np.insert(X, 0, 1, axis=1)
         return X @ np.insert(self.w, 0, self.b)
 
