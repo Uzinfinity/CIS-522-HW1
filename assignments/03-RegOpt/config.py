@@ -29,5 +29,6 @@ class CONFIG:
     transforms = Compose(
         [
             ToTensor(),
+            Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
         ]
     )
