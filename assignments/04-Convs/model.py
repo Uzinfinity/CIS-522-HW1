@@ -10,7 +10,7 @@ class Model(torch.nn.Module):
     def __init__(self, num_channels: int, num_classes: int) -> None:
         super(Model, self).__init__()
 
-        self.conv1 = nn.Conv2d(num_channels, 16, kernel_size=8, stride=2, padding=1)
+        self.conv1 = nn.Conv2d(num_channels, 16, kernel_size=6, stride=2, padding=1)
         self.relu1 = nn.ReLU()
         self.pool1 = nn.MaxPool2d(kernel_size=4, stride=2)
         self.fc = nn.Linear(16 * 6 * 6, num_classes)
